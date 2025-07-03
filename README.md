@@ -107,19 +107,24 @@ model2.compile(optimizer='adam',loss='categorical_crossentropy',metrics=["accura
 history1 = model2.fit(X_train , y_train , epochs=10,validation_data=(X_test,y_test))
 
 ```
-test/make predictions
+make prediction function 
 ```bash
-text = input("Enter any Sentence :")
-sequence = tokenizer.texts_to_sequences([text])
-padding = pad_sequences(sequence , padding='post',maxlen=35)
-pred = model.predict(padding)
-pred_class = pred.argmax(axis=-1)
-if pred_class[0] == 0:
-    print("Positive Sentiment");
-elif pred_class[0] == 1:
-    print("Negative Sentiment")
-else :
-    print("Natural Sentiment")
+def prediction(text):
+    # Prediction funtion 
+    sequence = tokenizer.texts_to_sequences([text])
+    padding = pad_sequences(sequence , padding='post',maxlen=35)
+    pred = model2.predict(padding)
+    pred_class = pred.argmax(axis=-1)
+    if pred_class[0] == 0:
+        print("Positive Sentiment");
+    elif pred_class[0] == 1:
+        print("Negative Sentiment")
+    else :
+        print("Natural Sentiment")
+```
+make prediction
+```
+prediction('Completely disappointed with the service.')
 ```
 ## Example Predictions
 #The notebook includes examples of predicting the sentiment of new text samples. Here are a few examples:
@@ -132,7 +137,67 @@ Input: "I hate the traffic in this city. It's so frustrating."
 Predicted Sentiment: Negative
 Input: "The weather today is nice."
 
-Predicted Sentiment: Neutral
+Predicted Sentiment: Natural
+## Export & Deployment
+- Model saved: sentiment_model.h5
+- Tokenizer saved: tokenizer.pkl
+```
+# Load model
+from tensorflow.keras.models import load_model
+model = load_model("sentiment_model.h5")
+
+# Load tokenizer
+with open("tokenizer.pkl", "rb") as f:
+    tokenizer = pickle.load(f)
+```
+You can directly use the prediction(text) function to infer sentiment from any user input in real-time.
+# Model Loading & Inference
+You can use the saved model and tokenizer to make predictions on new text data:
+```
+from tensorflow.keras.models import load_model
+import pickle
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+# Load model
+model = load_model("sentiment_model.h5")
+
+# Load tokenizer
+with open("tokenizer.pkl", "rb") as f:
+    tokenizer = pickle.load(f)
+
+# Prediction function
+def prediction(text):
+    sequence = tokenizer.texts_to_sequences([text])
+    padded = pad_sequences(sequence, padding='post', maxlen=35)
+    pred = model.predict(padded)
+    pred_class = pred.argmax(axis=-1)
+
+    if pred_class[0] == 0:
+        print("Positive Sentiment")
+    elif pred_class[0] == 1:
+        print("Negative Sentiment")
+    else:
+        print("Natural Sentiment")
+```
+## Example Outputs
+```
+prediction('today i feel happy')
+# Output: Positive Sentiment
+
+prediction('The meeting is scheduled for 3 PM tomorrow.')
+# Output: Natural Sentiment
+
+prediction('Completely disappointed with the service.')
+# Output: Negative Sentiment
+```
+## Project Structure
+```
+├── sentiment_model.h5         # Final GRU model
+├── tokenizer.pkl              # Tokenizer dump
+├── train.csv / test.csv       # Dataset
+├── Sentiment_RNN_GRU.ipynb    # Main notebook
+└── README.md                  # Project overview
+```
 ## Conclusion
 Multiple architectures were tested — GRU outperformed SimpleRNN in validation accuracy and consistency.
 
