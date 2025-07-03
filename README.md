@@ -192,11 +192,11 @@ prediction('Completely disappointed with the service.')
 ```
 ## Project Structure
 ```
-├── sentiment_model.h5         # Final GRU model
-├── tokenizer.pkl              # Tokenizer dump
-├── train.csv / test.csv       # Dataset
-├── Sentiment_RNN_GRU.ipynb    # Main notebook
-└── README.md                  # Project overview
+├── sentiment_model.h5                          # Final GRU model
+├── tokenizer.pkl                               # Tokenizer dump
+├── train.csv / test.csv                        # Dataset
+├── Sentiment Analysis using RNN & GRU.ipynb    # Main notebook
+└── README.md                                   # Project overview
 ```
 ## Conclusion
 Multiple architectures were tested — GRU outperformed SimpleRNN in validation accuracy and consistency.
