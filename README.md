@@ -20,10 +20,10 @@ Source: Pre-split CSVs (train.csv, test.csv)
 Size:
 Train: 27,481 samples
 Test: Remaining from dataset
-Labels:
--positive → 0
--negative → 1
--neutral → 2
+## Labels:
+- positive → 0
+- negative → 1
+- neutral → 2
 ## Requirements
 
 To run the notebook, you will need the following Python libraries:
