@@ -1,5 +1,5 @@
 # 📊 Sentiment Analysis Using RNN & GRU AI Project
-This project performs sentiment classification (Positive, Negative, Neutral) on text data using Recurrent Neural Networks, specifically comparing SimpleRNN and GRU-based architectures.
+This project performs sentiment classification (Positive, Negative, Natural) on text data using Recurrent Neural Networks, specifically comparing SimpleRNN and GRU-based architectures.
 
 ✅ Final deployed model: GRU, due to better generalization and validation stability.
 ❌ LSTM & Bidirectional layers were tested but excluded due to overfitting or poor generalization.
