@@ -16,8 +16,8 @@ This project performs sentiment classification (Positive, Negative, Neutral) on 
 - `test.csv`: Testing dataset.
 
 ## Dataset
-Source: Pre-split CSVs (train.csv, test.csv)
-Size:
+- Source: Pre-split CSVs (train.csv, test.csv)
+- Size:
 Train: 27,481 samples
 Test: Remaining from dataset
 ## Labels:
