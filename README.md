@@ -1,18 +1,29 @@
-# Sentiment_Analysis_UsingRNN_AI_Project
-Sentiment Analysis using RNN to classify text data into positive, negative, and neutral sentiments. Includes data preprocessing, model training, and evaluation with TensorFlow and Keras.
+# 📊 Sentiment Analysis Using RNN & GRU AI Project
+This project performs sentiment classification (Positive, Negative, Neutral) on text data using Recurrent Neural Networks, specifically comparing SimpleRNN and GRU-based architectures.
 
+✅ Final deployed model: GRU, due to better generalization and validation stability.
+❌ LSTM & Bidirectional layers were tested but excluded due to overfitting or poor generalization.
 ## Project Overview
 
-- **Model**: Recurrent Neural Network (RNN)
+- **Model**: Recurrent Neural Network (RNN) / Gated Recurrent Unit (GRU)
 - **Datasets**: Provided training and testing datasets
 - **Goal**: To build a model that can predict the sentiment of a given text
 
 ## File Structure
 
-- `Sentiment Analysis using. RNN.ipynb`: Jupyter notebook containing the entire workflow, from data preprocessing to model evaluation.
+- `Sentiment Analysis using RNN & GRU.ipynb`: Jupyter notebook containing the entire workflow, from data preprocessing to model evaluation.
 - `train.csv`: Training dataset.
 - `test.csv`: Testing dataset.
 
+## Dataset
+Source: Pre-split CSVs (train.csv, test.csv)
+Size:
+Train: 27,481 samples
+Test: Remaining from dataset
+Labels:
+-positive → 0
+-negative → 1
+-neutral → 2
 ## Requirements
 
 To run the notebook, you will need the following Python libraries:
